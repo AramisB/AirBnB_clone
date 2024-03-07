@@ -1,0 +1,46 @@
+import argparse
+
+class SearchResults:
+    def __init__(self, results):
+        self.results = results
+
+    def filter_by_price(self, max_price):
+        return [result for result in self.results if result["price"] <= max_price]
+
+    def book_first_available(self):
+        for result in self.results:
+            if result["available"]:
+                return result
+        return None
+
+def search(location):
+    # Simulated search results
+    results = [
+        {"id": 1, "location": "New York", "price": 100, "available": True},
+        {"id": 2, "location": "New York", "price": 200, "available": False},
+    ]
+    return SearchResults(results)
+
+def filter_results(results, max_price):
+    return results.filter_by_price(max_price)
+
+def book_first_available(results):
+    return results.book_first_available()
+
+def main():
+    parser = argparse.ArgumentParser(description="Search for and book vacation rentals.")
+    parser.add_argument("location", help="Location to search for vacation rentals")
+    parser.add_argument("--max-price", type=int, help="Maximum price for vacation rentals")
+    args = parser.parse_args()
+
+    search_results = search(args.location)
+    filtered_results = filter_results(search_results, args.max_price)
+    booked_rental = book_first_available(filtered_results)
+
+    if booked_rental:
+        print(f"Booked rental: {booked_rental['id']}")
+    else:
+        print("No available rentals found")
+
+if __name__ == "__main__":
+    main()
