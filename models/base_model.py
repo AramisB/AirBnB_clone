@@ -4,7 +4,7 @@ A module that defines the BaseModel class
 """
 from datetime import datetime
 import uuid
-
+import models
 
 class BaseModel:
     """
@@ -18,8 +18,8 @@ class BaseModel:
         """
         time_format = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid.uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
         if len(kwargs) != 0:
             for key, value in kwargs.items():
@@ -27,6 +27,8 @@ class BaseModel:
                     self.__dict__[key] = datetime.strptime(value, time_format)
                 else:
                     self. __dict__[key] = value
+        else:
+            models.storage.new(self)                            
 
     def save(self):
         """
@@ -34,6 +36,7 @@ class BaseModel:
         updated_at with the current datetime
         """
         self.updated_at = datetime.today()
+        models.storage.save()
 
     def to_dict(self):
         """
