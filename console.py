@@ -7,6 +7,7 @@ import json
 from models.base_model import BaseModel
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
@@ -23,7 +24,8 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, args):
-        """Create a new instance of BaseModel, save it to the JSON file and print the id."""
+        """Create a new instance of BaseModel,
+        save it to the JSON file and print the id."""
         if len(args) == 0:
             print("** class name missing **")
         elif args not in storage.classes():
@@ -33,7 +35,8 @@ class HBNBCommand(cmd.Cmd):
             print(obj.id)
 
     def do_show(self, args):
-        """Print the string representation of an instance based on the class name and id."""
+        """Print the string representation of an instance
+        based on the class name and id."""
         arg_list = args.split()
         if len(arg_list) == 0:
             print("** class name missing **")
@@ -49,7 +52,8 @@ class HBNBCommand(cmd.Cmd):
                 print(storage.all()[key])
 
     def do_destroy(self, args):
-        """Delete an instance based on the class name and id (save the change into the JSON file)."""
+        """Delete an instance based on the class name
+        and id (save the change into the JSON file)."""
         arg_list = args.split()
         if len(arg_list) == 0:
             print("** class name missing **")
@@ -66,7 +70,8 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()
 
     def do_all(self, args):
-        """Print all string representation of all instances based or not on the class name."""
+        """Print all string representation of all instances based
+        or not on the class name."""
         if len(args) == 0:
             for obj in storage.all().values():
                 print(obj)
@@ -79,7 +84,8 @@ class HBNBCommand(cmd.Cmd):
                         print(obj)
 
     def do_update(self, args):
-        """Update an instance based on the class name and id by adding or updating attribute (save the change into the JSON file)."""
+        """Update an instance based on the class name and id by adding
+        or updating attribute (save the change into the JSON file)."""
         arg_list = args.split()
         if len(arg_list) == 0:
             print("** class name missing **")
@@ -97,4 +103,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
             else:
                 obj = storage.all()[key]
-                setattr(obj, arg
+                setattr(obj, arg)
+
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
