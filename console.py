@@ -6,7 +6,7 @@ This module defines the HBNBCommand
 import json
 from models.base_model import BaseModel
 from models import storage
-
+import cmd
 
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
