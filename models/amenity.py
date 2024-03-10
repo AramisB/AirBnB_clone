@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-from base_model import BaseModel
+"""
+Defines class Amenity
+"""
+from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
