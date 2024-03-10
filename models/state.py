@@ -1,5 +1,5 @@
-
-mmodel import Base
+#!/usr/bin/python3
+from model import Base
 class State(BaseModel):
     def __init__(self, name: str):
         self.name = name

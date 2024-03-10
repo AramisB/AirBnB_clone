@@ -1,5 +1,5 @@
-
-m base_model import BaseModel
+#!/usr/bin/python3
+from base_model import BaseModel
 from models.city import City
 from models.user import User
 from models.amenity import Amenity
