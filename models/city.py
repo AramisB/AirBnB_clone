@@ -1,21 +1,17 @@
 #!/usr/bin/python3
-from base_model import BaseModel
-from models.state import State
+"""
+Defines the City class
+"""
+
 
 class City(BaseModel):
-    def __init__(self, state_id: str, name: str):
-        self.state_id = state_id
-        self.name = name
+    """
+    Represents a city
 
-    def __str__(self):
-        return f"[City] ({self.id}) {self.name} in {State.get_by_id(self.state_id).name}"
+    Attributes:
+    state_id(str): the state id
+    name(str): The name of the city
+    """
 
-    def serialize(self):
-        return {
-            "state_id": self.state_id,
-            "name": self.name
-        }
-
-    @classmethod
-    def deserialize(cls, data: dict):
-        return cls(**data)
+    state_id = ""
+    name = ""

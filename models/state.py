@@ -1,17 +1,15 @@
 #!/usr/bin/python3
-from model import Base
+"""
+Defines the State class
+"""
+
+
 class State(BaseModel):
-    def __init__(self, name: str):
-        self.name = name
+    """
+    Represents a state
 
-    def __str__(self):
-        return f"[State] ({self.id}) {self.name}"
+    Attributes:
+    namestr): the name of the state
+    """
 
-    def serialize(self):
-        return {
-            "name": self.name
-        }
-
-    @classmethod
-    def deserialize(cls, data: dict):
-        return cls(**data)
+    name = ""

@@ -6,6 +6,7 @@ from datetime import datetime
 import uuid
 import models
 
+
 class BaseModel:
     """
     Represents the model of HBNB project
@@ -28,7 +29,7 @@ class BaseModel:
                 else:
                     self. __dict__[key] = value
         else:
-            models.storage.new(self)                            
+            models.storage.new(self)
 
     def save(self):
         """

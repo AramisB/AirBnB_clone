@@ -5,6 +5,11 @@ A module that defines FileStorage class
 import json
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class FileStorage:
@@ -25,7 +30,8 @@ class FileStorage:
 
     def new(self, obj):
         """
-        sets in __objects the obj with key <obj class name>.id
+        sets in __objects the obj
+        with key <obj class name>.id
         """
         key = "{}.{}".format(type(obj).__name__, obj.id)
         FileStorage.__objects[key] = obj

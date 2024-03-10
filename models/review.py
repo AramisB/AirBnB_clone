@@ -1,13 +1,19 @@
 #!/usr/bin/python3
-from base_model import BaseModel
-from models.place import Place
-from models.user import User
+"""
+Defines the Review class
+"""
+
 
 class Review(BaseModel):
-    def __init__(self, place_id: str, user_id: str, text: str):
-        self.place_id = place_id
-        self.user_id = user_id
-        self.text = text
+    """
+    Represents a review
 
-    def __str__(self):
-        return f"[Review] ({
+    Attributes:
+    place_id(str): The place id
+    user_id(str): the user id
+    text(str): the text of the review
+    """
+
+    place_id = ""
+    user_id = ""
+    text = ""
