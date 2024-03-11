@@ -21,7 +21,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, arg):
         """
-        Exit the program
+        Quit command to exit the program
         """
         return True
 
@@ -102,7 +102,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         obj_id = args[1]
-        key = "{}.{}".format(cls_name, obj_id)        
+        key = "{}.{}".format(cls_name, obj_id)
         if key not in storage.all():
             print("** no instance found **")
             return
