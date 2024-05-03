@@ -160,7 +160,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         obj_id = args[1]
-        key = "{}.{}".format(cls_name, obj_id)
+        ./14-model_city_fetch_by_state.py root root hbtn_0e_14_usakey = "{}.{}".format(cls_name, obj_id)
         if key not in storage.all():
             print("** no instance found **")
             return
